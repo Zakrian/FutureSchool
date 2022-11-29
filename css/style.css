@@ -1,45 +1,7 @@
-@font-face {
-  font-family: "Helvetica";
-  src: url("../fonts/Helvetica-regular.ttf") type("truetype");
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-Regular.otf") type("otf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-}
-@font-face {
-  font-family: "GothamPro";
-  src: url("../fonts/GothamPro-regular.ttf") type("truetype");
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-}
-@font-face {
-  font-family: "GothamPro";
-  src: url("../fonts/GothamPro-medium.ttf") type("truetype");
-  font-style: normal;
-  font-weight: 500;
-  font-display: block;
-}
-@font-face {
-  font-family: "GothamPro";
-  src: url("../fonts/GothamPro-bold.ttf") type("truetype");
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-}
-@font-face {
-  font-family: "ALSSchlange";
-  src: url("../fonts/ALSSchlange-Bold.ttf") type("truetype"), url("../fonts/ALSSchlange-Bold.woff") type("woff");
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-}
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:regular&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Inter:regular&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:regular,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Balsamiq+Sans:700&display=swap");
 body {
   font-family: "GothamPro", sans-serif;
   font-size: 15px;
@@ -55,7 +17,7 @@ body {
 }
 
 .section__title {
-  font-family: "ALSSchlange";
+  font-family: "Balsamiq Sans";
   font-size: 50px;
   font-weight: 700;
   line-height: 103.2%;
@@ -63,7 +25,7 @@ body {
   color: #243976;
 }
 .section__text {
-  font-family: "GothamPro";
+  font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -83,7 +45,7 @@ body {
   border-radius: 90px;
   padding: 20px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 118.2%;
   text-align: center;
   letter-spacing: 0.125em;
@@ -94,18 +56,20 @@ body {
 }
 
 .header {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
   width: 100%;
   padding: 15px 0px 15px 0px;
   background-color: #fff;
+}
+.header__content {
+  position: relative;
+  top: 80px;
 }
 .header__content_top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 0px 20px 0px;
+  position: fixed;
+  padding: 0px 30px 10px 0px;
   border-bottom: 1px solid #eff2fd;
 }
 .header__content_middle {
@@ -113,7 +77,7 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  margin: 0px 0px 30px 0px;
+  margin: 0px 0px 10px 0px;
 }
 .header__logo {
   max-width: 235px;
@@ -123,6 +87,10 @@ body {
 .header__logo img {
   width: 100%;
   height: 100%;
+}
+.header__connect {
+  display: flex;
+  align-items: center;
 }
 .header__connect_btn {
   width: 220px;
@@ -147,6 +115,9 @@ body {
   font-size: 14px;
   color: inherit;
 }
+.header__user {
+  text-align: right;
+}
 .header__user_link {
   font-size: 14px;
   color: inherit;
@@ -160,6 +131,19 @@ body {
   width: 18px;
   height: 18px;
   background: url("../img/icons/header-user.svg") center/contain no-repeat;
+}
+
+.top-header-content {
+  position: fixed;
+  top: 10px;
+  z-index: 1000;
+  width: 100%;
+  background-color: #fff;
+}
+.top-header-content__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .bottom-header-content {
@@ -188,7 +172,8 @@ body {
 .menu-icon {
   display: none;
   position: relative;
-  transform: translateX(-50%);
+  top: 0;
+  right: 40px;
   width: 17px;
   height: 14px;
   cursor: pointer;
@@ -247,15 +232,17 @@ body {
 }
 
 .mobile-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   position: relative;
-  top: 65px;
+  top: 50px;
   width: 100%;
   height: 370px;
-  transition: all 0.8s ease;
+  box-shadow: 5px 15px 40px rgba(30, 35, 66, 0.15);
+  border-radius: 0px 0px 15px 15px;
+  transition: all 0.6s ease;
   transform-origin: top;
   transform: translateY(-150%);
 }
@@ -312,7 +299,67 @@ body {
   .menu-icon {
     display: block;
   }
+  .mobile-menu {
+    display: flex;
+  }
 }
+.intro {
+  min-height: 770px;
+  padding: 75px 0px 0px 0px;
+  background: url("../img/intro-bg.jpg") center/cover no-repeat;
+}
+.intro__title {
+  max-width: 450px;
+  margin: 0px 0px 40px 0px;
+  text-align: left;
+}
+.intro__title span {
+  color: #49B3F7;
+}
+.intro__text {
+  max-width: 450px;
+  margin: 0px 0px 35px 0px;
+  font-size: 17px;
+  line-height: 165.2%;
+}
+.intro__text span {
+  display: block;
+  margin: 20px 0px 0px 0px;
+  font-weight: 700;
+}
+.intro__btn {
+  margin: 0px 0px 20px 0px;
+}
+.intro__social {
+  display: flex;
+  align-items: center;
+}
+.intro__social span {
+  margin: 0px 15px 0px 0px;
+}
+
+.social__tg, .social__wa {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+.social__tg:hover, .social__wa:hover {
+  transform: scale(1.15);
+}
+
+.social__tg {
+  margin: 0px 15px 0px 0px;
+  background: url("../img/icons/social/tg.png") center/cover no-repeat;
+}
+.social__wa {
+  background: url("../img/icons/social/wa.png") center/cover no-repeat;
+}
+
 @media (max-width: 1199.99px) {
   .container {
     max-width: 970px;
