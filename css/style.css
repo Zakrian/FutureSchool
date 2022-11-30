@@ -18,7 +18,7 @@ body {
 
 .section__title {
   font-family: "Balsamiq Sans";
-  font-size: 50px;
+  font-size: 84px;
   font-weight: 700;
   line-height: 103.2%;
   text-align: center;
@@ -28,7 +28,7 @@ body {
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 157%;
   color: #243976;
 }
@@ -56,9 +56,11 @@ body {
 }
 
 .header {
+  position: relative;
+  top: 0;
+  z-index: 10000;
   width: 100%;
   padding: 15px 0px 15px 0px;
-  background-color: #fff;
 }
 .header__content {
   position: relative;
@@ -70,6 +72,7 @@ body {
   justify-content: space-between;
   position: fixed;
   padding: 0px 30px 10px 0px;
+  background-color: rgba(255, 255, 255, 0);
   border-bottom: 1px solid #eff2fd;
 }
 .header__content_middle {
@@ -235,12 +238,14 @@ body {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  position: relative;
+  justify-content: center;
+  position: absolute;
   top: 50px;
   width: 100%;
-  height: 370px;
-  box-shadow: 5px 15px 40px rgba(30, 35, 66, 0.15);
+  height: 430px;
+  padding: 60px 0px 0px 0px;
+  background-color: #eff2fd;
+  box-shadow: 0px 10px 10px rgba(30, 35, 66, 0.6);
   border-radius: 0px 0px 15px 15px;
   transition: all 0.6s ease;
   transform-origin: top;
@@ -279,12 +284,19 @@ body {
   margin: 0;
 }
 .mobile-menu._active {
-  transform: translateY(0);
+  transform: translateY(-49px);
 }
 
+@media (max-width: 999.99px) {
+  .header__content_bottom {
+    margin-bottom: 50px;
+  }
+}
 @media (max-width: 766.99px) {
   .header {
-    padding: 5px 0;
+    position: fixed;
+    height: 60px;
+    padding: 0;
   }
   .header__logo {
     width: 170px;
@@ -294,7 +306,10 @@ body {
     display: none;
   }
   .header__content_top {
-    padding: 0px 0px 5px 0px;
+    top: 0;
+    padding: 5px 0px 10px 0px;
+    background-color: inherit;
+    border-bottom: none;
   }
   .menu-icon {
     display: block;
@@ -302,22 +317,51 @@ body {
   .mobile-menu {
     display: flex;
   }
+  .mobile-menu::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background-color: rgba(197, 207, 243, 0.7);
+  }
 }
 .intro {
-  min-height: 770px;
-  padding: 75px 0px 0px 0px;
+  min-height: 630px;
+  padding: 70px 0px 50px 0px;
   background: url("../img/intro-bg.jpg") center/cover no-repeat;
 }
+.intro__content-img {
+  display: none;
+}
+.intro__content-img img {
+  width: 100%;
+  height: 100%;
+}
+.intro__descr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.intro__descr_img {
+  flex: 1 1 500px;
+}
+.intro__descr_img img {
+  width: 100%;
+}
 .intro__title {
-  max-width: 450px;
-  margin: 0px 0px 40px 0px;
+  max-width: 740px;
+  font-size: calc(32px + 26 * ((100vw - 320px) / 850));
   text-align: left;
 }
 .intro__title span {
+  display: block;
   color: #49B3F7;
 }
 .intro__text {
-  max-width: 450px;
+  max-width: 440px;
   margin: 0px 0px 35px 0px;
   font-size: 17px;
   line-height: 165.2%;
@@ -328,7 +372,17 @@ body {
   font-weight: 700;
 }
 .intro__btn {
+  position: relative;
   margin: 0px 0px 20px 0px;
+}
+.intro__btn::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  right: -55px;
+  width: 50px;
+  height: 50px;
+  background: url("../img/icons/round-arrow.png") center/contain no-repeat;
 }
 .intro__social {
   display: flex;
@@ -338,7 +392,8 @@ body {
   margin: 0px 15px 0px 0px;
 }
 
-.social__tg, .social__wa {
+.social__tg,
+.social__wa {
   display: inline-block;
   position: relative;
   top: 50%;
@@ -348,7 +403,8 @@ body {
   overflow: hidden;
   transition: all 0.2s ease;
 }
-.social__tg:hover, .social__wa:hover {
+.social__tg:hover,
+.social__wa:hover {
   transform: scale(1.15);
 }
 
@@ -360,6 +416,43 @@ body {
   background: url("../img/icons/social/wa.png") center/cover no-repeat;
 }
 
+@media (max-width: 999.99px) {
+  .intro {
+    background: url("../img/intro-mob-bg.jpg") center/cover no-repeat;
+  }
+  .intro__content-img {
+    display: block;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  .intro__descr {
+    justify-content: center;
+  }
+  .intro__descr_content {
+    text-align: center;
+  }
+  .intro__descr_img {
+    display: none;
+  }
+  .intro__title {
+    max-width: 530px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .intro__text {
+    max-width: 560px;
+    margin-bottom: 30px;
+  }
+  .intro__btn::after {
+    display: none;
+  }
+  .intro__social {
+    justify-content: center;
+  }
+}
 @media (max-width: 1199.99px) {
   .container {
     max-width: 970px;
