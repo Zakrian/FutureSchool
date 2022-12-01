@@ -23,15 +23,11 @@ body::after {
   transition: all 0.3s ease;
 }
 
+._block {
+  overflow-y: hidden;
+}
 ._block::after {
   opacity: 1;
-}
-._block main {
-  transform: scale(0.9) translateY(-150px);
-}
-
-main {
-  transition: all 0.6s ease;
 }
 
 .wrapper {
@@ -761,6 +757,10 @@ main {
   .discount__img {
     width: 85px;
   }
+}
+.becouse {
+  padding: 60px 0;
+  background: url("../img/becouse-bg.jpg") left/cover no-repeat;
 }
 @media (max-width: 1199.99px) {
   .container {
