@@ -1,5 +1,6 @@
 // Меню бургер ===============================================
 const body = document.querySelector('body'),
+  main = document.querySelector('main'),
   menuBurger = document.querySelector('.menu-icon'),
   menuBody = document.querySelector('.mobile-menu');
 
