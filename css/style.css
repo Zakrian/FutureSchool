@@ -27,11 +27,11 @@ body::after {
   opacity: 1;
 }
 ._block main {
-  transform: scale(0.9);
+  transform: scale(0.9) translateY(-150px);
 }
 
 main {
-  transition: all 0.4s ease;
+  transition: all 0.6s ease;
 }
 
 .wrapper {
