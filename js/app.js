@@ -1,15 +1,25 @@
 // Меню бургер ===============================================
-const menuBurger = document.querySelector('.menu-icon');
-const menuBody = document.querySelector('.mobile-menu');
+const body = document.querySelector('body'),
+  menuBurger = document.querySelector('.menu-icon'),
+  menuBody = document.querySelector('.mobile-menu');
 
-if (menuBurger) {
-	menuBurger.addEventListener("click", function () {
-		menuBurger.classList.toggle('_active');
-		if (menuBody) {
-			menuBody.classList.toggle('_active');
-		}
-	});
+function toggleBurger() {
+  menuBurger.classList.toggle('_active');
+  body.classList.toggle('_block');
+  if (menuBody) {
+    menuBody.classList.toggle('_active');
+  }
 }
+
+window.addEventListener('click', (e) => {
+  const target = e.target;
+  console.log(target);
+
+  toggleBurger();
+  if (target.classList.contains('_block')) {
+    toggleBurger();
+  }
+});
 
 // Плавный скролл к якорю ===================================
 // document.querySelectorAll('a[href^="#"').forEach(link => {
