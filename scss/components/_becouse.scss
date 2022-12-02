@@ -1,0 +1,160 @@
+.becouse {
+  padding: 60px 0;
+  background-color: $second-light-color;
+  &__title {
+    margin-bottom: 60px;
+    @include adaptiv-font(32, 20);
+    text-align: left;
+  }
+  &__content {
+    position: relative;
+    margin-bottom: 25px;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-width: 600px;
+      max-height: 390px;
+      width: 100%;
+      height: 100%;
+      background: url("../img/like-us-beacouse-bg.png") center / cover no-repeat;
+    }
+  }
+  &__img-block {
+    display: none;
+  }
+  &__item {
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+    &:hover {
+      background-color: $light-color;
+      box-shadow: 5px 15px 40px rgba(30, 35, 66, 0.15);
+      // transform: scale(1.015);
+    }
+  }
+}
+.item-becouse {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  max-width: 560px;
+  padding: 15px 20px;
+  &__img {
+    width: 45px;
+  }
+  &__title {
+    margin-bottom: 10px;
+    font-family: "Ubuntu", sans-serif;
+    @include adaptiv-font(20, 15);
+    font-weight: 500;
+    text-align: left;
+  }
+  &__text {
+    max-width: 390px;
+    width: 100%;
+    @include adaptiv-font(15, 14);
+    text-align: left;
+    line-height: 1.3;
+  }
+}
+
+// Media
+@media (max-width: 1099.99px) {
+  .becouse {
+    &__content {
+      &::after {
+        top: auto;
+        bottom: 100px;
+        max-width: 480px;
+        max-height: 310px;
+      }
+    }
+  }
+}
+
+@media (max-width: 999.99px) {
+  .becouse {
+    &-social-block {
+      max-width: 270px;
+    }
+    &__btn {
+      &::after {
+        display: block;
+      }
+    }
+  }
+  .item-becouse {
+    &__text {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 929.99px) {
+  .becouse {
+    &__title {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    &__content {
+      margin-bottom: 0;
+      &::after {
+        max-width: 320px;
+        max-height: 200px;
+      }
+    }
+  }
+  .item-becouse {
+    max-width: 700px;
+    &:nth-child(4) {
+      max-width: 440px;
+    }
+    &__text {
+      max-width: 700px;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 766.99px) {
+  .becouse {
+    &__content {
+      &::after {
+        display: none;
+      }
+    }
+    &__item {
+      max-width: none;
+      width: 100%;
+      &:nth-child(4) {
+        max-width: inherit;
+        width: inherit;
+        margin-bottom: 40px;
+      }
+    }
+    &__img-block {
+      display: block;
+      max-width: 380px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__btn {
+      &::after {
+        display: none;
+      }
+    }
+    &-social-block {
+      margin: 0 auto;
+    }
+  }
+}
