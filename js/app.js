@@ -1,24 +1,33 @@
 // Меню бургер ===============================================
 const body = document.querySelector('body'),
-  main = document.querySelector('main'),
+  // main = document.querySelector('main'),
   menuBurger = document.querySelector('.menu-icon'),
   menuBody = document.querySelector('.mobile-menu');
 
-function toggleBurger() {
-  menuBurger.classList.toggle('_active');
-  body.classList.toggle('_block');
+function showBurger() {
+  menuBurger.classList.add('_active');
+  body.classList.add('_block');
   if (menuBody) {
-    menuBody.classList.toggle('_active');
+    menuBody.classList.add('_active');
+  }
+}
+
+function hideBurger() {
+  menuBurger.classList.remove('_active');
+  body.classList.remove('_block');
+  if (menuBody) {
+    menuBody.classList.remove('_active');
   }
 }
 
 window.addEventListener('click', (e) => {
   const target = e.target;
-  console.log(target);
+  // console.log(target);
 
-  toggleBurger();
-  if (target.classList.contains('_block')) {
-    toggleBurger();
+  if (target === menuBurger || target === menuBody) {
+    showBurger();
+  } else {
+    hideBurger();
   }
 });
 
