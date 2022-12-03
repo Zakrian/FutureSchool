@@ -75,6 +75,14 @@ body::after {
   box-shadow: 0px 6px 21px rgba(104, 130, 245, 0.67);
 }
 
+.title {
+  font-size: calc(20px + 14 * ((100vw - 320px) / 850));
+}
+
+.subtitle {
+  font-size: calc(18px + 6 * ((100vw - 320px) / 850));
+}
+
 .header {
   position: relative;
   top: 0;
@@ -477,7 +485,6 @@ body::after {
 }
 .about-first__title {
   margin: 0px 0px 60px 0px;
-  font-size: calc(20px + 12 * ((100vw - 320px) / 850));
   text-align: left;
 }
 .about-first__for-who, .about-first__discount, .about-first__lessons {
@@ -528,7 +535,6 @@ body::after {
 }
 .discount__title {
   margin-bottom: 5px;
-  font-size: calc(18px + 8 * ((100vw - 320px) / 850));
   text-align: left;
 }
 .discount__text {
@@ -763,7 +769,6 @@ body::after {
 }
 .becouse__title {
   margin-bottom: 60px;
-  font-size: calc(20px + 12 * ((100vw - 320px) / 850));
   text-align: left;
 }
 .becouse__content {
@@ -907,7 +912,6 @@ body::after {
 }
 .comparison__title {
   margin-bottom: 60px;
-  font-size: calc(26px + 6 * ((100vw - 320px) / 850));
 }
 .comparison__inner {
   display: flex;
@@ -987,7 +991,6 @@ body::after {
 }
 .online-school-it__title {
   margin-bottom: 60px;
-  font-size: calc(26px + 6 * ((100vw - 320px) / 850));
 }
 .online-school-it__inner {
   display: flex;
@@ -1111,7 +1114,7 @@ body::after {
 }
 .cost__title {
   margin-bottom: 140px;
-  font-size: calc(26px + 6 * ((100vw - 320px) / 850));
+  font-size: calc(26px + 10 * ((100vw - 320px) / 850));
 }
 .cost__inner {
   display: flex;
@@ -1137,7 +1140,6 @@ body::after {
   height: 100px;
   padding: 15px;
   border-radius: 25px;
-  font-size: calc(18px + 8 * ((100vw - 320px) / 850));
   line-height: 2;
   font-weight: 500;
 }
@@ -1258,6 +1260,112 @@ body::after {
     width: 200px;
     height: 70px;
   }
+}
+.about-tird {
+  padding: 80px 0;
+}
+.certificate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 80px;
+}
+.certificate__text {
+  max-width: 500px;
+  width: 100%;
+}
+.certificate__title {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.certificate__descr {
+  text-align: left;
+}
+.certificate__img {
+  max-width: 460px;
+}
+.certificate__img img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 999.99px) {
+  .certificate__img {
+    max-width: 380px;
+  }
+}
+@media (max-width: 766.99px) {
+  .certificate {
+    flex-direction: column;
+  }
+  .certificate__text {
+    margin-bottom: 30px;
+  }
+  .certificate__title {
+    text-align: center;
+  }
+  .certificate__descr {
+    text-align: center;
+  }
+}
+.reviews {
+  margin-bottom: 80px;
+}
+.reviews__title {
+  margin-bottom: 140px;
+}
+.reviews__slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 30px;
+  max-width: 620px !important;
+  width: 100% !important;
+  min-height: 270px;
+  padding: 35px 25px;
+  background-color: #fff;
+  box-shadow: 14px 22px 40px rgba(30, 35, 66, 0.28);
+}
+.reviews-slide__icon {
+  margin: 0px 0px 30px 20px;
+}
+.reviews-slide__title, .reviews-slide__subtitle, .reviews-slide__link {
+  text-align: center;
+}
+.reviews-slide__title {
+  margin: 0px 0px 10px 0px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+}
+.reviews-slide__subtitle {
+  padding: 0px 0px 20px 0px;
+}
+.reviews-slide__link {
+  display: block;
+}
+.reviews-slide__text {
+  max-width: 300px;
+  width: 100%;
+}
+
+.vk-rev {
+  border: 5px solid #4c75a3;
+  border-radius: 20px;
+}
+
+.insta-rev {
+  border: 5px solid #f85510;
+  border-radius: 20px;
+}
+
+.item-info__text {
+  font-weight: 400;
+}
+.item-info__text span {
+  font-weight: 500;
+}
+.item-info__item {
+  font-weight: 400;
 }
 @media (max-width: 1199.99px) {
   .container {

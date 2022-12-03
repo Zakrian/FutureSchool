@@ -11,7 +11,6 @@ function showBurger() {
     menuBody.classList.add('_active');
   }
 }
-
 function hideBurger() {
   menuBurger.classList.remove('_active');
   body.classList.remove('_block');
@@ -19,6 +18,26 @@ function hideBurger() {
     menuBody.classList.remove('_active');
   }
 }
+
+// Swiper-slider
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  speed: 400,
+  spaceBetween: 50,
+  grabCursor: true,
+  slidesPerView: 3,
+  centeredSlides: true,
+  speed: 600,
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+// Now you can use all slider methods like
+swiper.slideNext();
 
 window.addEventListener('click', (e) => {
   const target = e.target;
