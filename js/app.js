@@ -2,7 +2,9 @@
 const body = document.querySelector('body'),
   // main = document.querySelector('main'),
   menuBurger = document.querySelector('.menu-icon'),
-  menuBody = document.querySelector('.mobile-menu');
+  menuBody = document.querySelector('.mobile-menu'),
+  infoInner = document.querySelector('.info__inner'),
+  infoItems = document.querySelectorAll('.info__item');
 
 function showBurger() {
   menuBurger.classList.add('_active');
@@ -19,25 +21,46 @@ function hideBurger() {
   }
 }
 
+function closeAllAccordion(arr, selector) {
+  arr.forEach((item) => {
+    item.classList.remove(selector);
+    // if (item === target) {
+    //   item.classList.add(selector);
+    // }
+  });
+}
+
+function toggleTargetAccordion(item, selector) {
+  item.classList.toggle(selector);
+}
+
 // Swiper-slider
-const swiper = new Swiper('.swiper', {
-  loop: true,
-  speed: 400,
-  spaceBetween: 50,
-  grabCursor: true,
-  slidesPerView: 3,
-  centeredSlides: true,
-  speed: 600,
+// const swiper = new Swiper('.swiper', {
+//   // loop: true,
+//   speed: 450,
+//   spaceBetween: 100,
+//   grabCursor: true,
+//   slidesPerView: 3,
+//   centeredSlides: true,
+//   nested: true,
+//   breakpoints: {
+//     767: {
+//       slidesPerView: 1,
+//       spaceBetween: 30
+//     }
+//   },
+//   // loop: true,
+//   // centered: 'auto',
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
 
-// Now you can use all slider methods like
-swiper.slideNext();
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+// });
+// swiper.slideNext();
+
 
 window.addEventListener('click', (e) => {
   const target = e.target;
@@ -47,6 +70,21 @@ window.addEventListener('click', (e) => {
     showBurger();
   } else {
     hideBurger();
+  }
+});
+
+// closeAllAccordion(infoItems, '_active-item-info');
+infoInner.addEventListener('click', (e) => {
+  const target = e.target,
+    parentItem = target.parentElement,
+    preParentItem = target.parentElement.parentElement;
+
+  if (target.classList.contains('item-info__header')) {
+    closeAllAccordion(infoItems, '_active-item-info');
+    toggleTargetAccordion(parentItem, '_active-item-info');
+  } else if (target.classList.contains('item-info__title') || target.classList.contains('item-info__btn')) {
+    closeAllAccordion(infoItems, '_active-item-info');
+    toggleTargetAccordion(preParentItem, '_active-item-info');
   }
 });
 
