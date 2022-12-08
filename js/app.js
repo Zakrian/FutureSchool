@@ -76,8 +76,8 @@ window.addEventListener('click', (e) => {
 // closeAllAccordion(infoItems, '_active-item-info');
 infoInner.addEventListener('click', (e) => {
   const target = e.target,
-    parentItem = target.parentElement,
-    preParentItem = target.parentElement.parentElement;
+    parentItem = target.parentElement.parentElement,
+    preParentItem = target.parentElement.parentElement.parentElement;
 
   if (target.classList.contains('item-info__header')) {
     closeAllAccordion(infoItems, '_active-item-info');
