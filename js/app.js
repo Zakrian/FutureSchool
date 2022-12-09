@@ -1,6 +1,7 @@
 // Меню бургер ===============================================
 const body = document.querySelector('body'),
   // main = document.querySelector('main'),
+  header = document.querySelector('.header'),
   menuBurger = document.querySelector('.menu-icon'),
   menuBody = document.querySelector('.mobile-menu'),
   infoInner = document.querySelector('.info__inner'),
@@ -62,9 +63,9 @@ function toggleTargetAccordion(item, selector) {
 // swiper.slideNext();
 
 
-window.addEventListener('click', (e) => {
+header.addEventListener('click', (e) => {
+  e.preventDefault();
   const target = e.target;
-  // console.log(target);
 
   if (target === menuBurger || target === menuBody) {
     showBurger();
