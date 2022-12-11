@@ -1,11 +1,9 @@
+const body = document.querySelector('body');
+
 // Меню бургер ===============================================
-const body = document.querySelector('body'),
-  // main = document.querySelector('main'),
-  header = document.querySelector('.header'),
+const header = document.querySelector('.header'),
   menuBurger = document.querySelector('.menu-icon'),
-  menuBody = document.querySelector('.mobile-menu'),
-  infoInner = document.querySelector('.info__inner'),
-  infoItems = document.querySelectorAll('.info__item');
+  menuBody = document.querySelector('.mobile-menu');
 
 function showBurger() {
   menuBurger.classList.add('_active');
@@ -21,6 +19,24 @@ function hideBurger() {
     menuBody.classList.remove('_active');
   }
 }
+function listenerOnHeader() {
+  header.addEventListener('click', (e) => {
+    const target = e.target;
+
+    if (target === menuBurger || target === menuBody) {
+      e.preventDefault();
+      showBurger();
+    } else {
+      hideBurger();
+    }
+  });
+}
+listenerOnHeader();
+
+
+// Аккордеон =================================================
+const infoInner = document.querySelector('.info__inner'),
+  infoItems = document.querySelectorAll('.info__item');
 
 function closeAllAccordion(arr, selector) {
   arr.forEach((item) => {
@@ -30,11 +46,25 @@ function closeAllAccordion(arr, selector) {
     // }
   });
 }
-
 function toggleTargetAccordion(item, selector) {
   item.classList.toggle(selector);
 }
+infoInner.addEventListener('click', (e) => {
+  const target = e.target,
+    parentItem = target.parentElement.parentElement,
+    preParentItem = target.parentElement.parentElement.parentElement;
 
+  if (target.classList.contains('item-info__header')) {
+    closeAllAccordion(infoItems, '_active-item-info');
+    toggleTargetAccordion(parentItem, '_active-item-info');
+  } else if (target.classList.contains('item-info__title') || target.classList.contains('item-info__btn')) {
+    closeAllAccordion(infoItems, '_active-item-info');
+    toggleTargetAccordion(preParentItem, '_active-item-info');
+  }
+});
+
+
+// Слайдер ===================================================
 // Swiper-slider
 // const swiper = new Swiper('.swiper', {
 //   // loop: true,
@@ -63,31 +93,9 @@ function toggleTargetAccordion(item, selector) {
 // swiper.slideNext();
 
 
-header.addEventListener('click', (e) => {
-  e.preventDefault();
-  const target = e.target;
-
-  if (target === menuBurger || target === menuBody) {
-    showBurger();
-  } else {
-    hideBurger();
-  }
-});
 
 // closeAllAccordion(infoItems, '_active-item-info');
-infoInner.addEventListener('click', (e) => {
-  const target = e.target,
-    parentItem = target.parentElement.parentElement,
-    preParentItem = target.parentElement.parentElement.parentElement;
 
-  if (target.classList.contains('item-info__header')) {
-    closeAllAccordion(infoItems, '_active-item-info');
-    toggleTargetAccordion(parentItem, '_active-item-info');
-  } else if (target.classList.contains('item-info__title') || target.classList.contains('item-info__btn')) {
-    closeAllAccordion(infoItems, '_active-item-info');
-    toggleTargetAccordion(preParentItem, '_active-item-info');
-  }
-});
 
 // Плавный скролл к якорю ===================================
 // document.querySelectorAll('a[href^="#"').forEach(link => {
