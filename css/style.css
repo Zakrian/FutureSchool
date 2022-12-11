@@ -116,6 +116,7 @@ body {
   max-width: 235px;
   padding: 0px 10px 0px 0px;
   overflow: hidden;
+  cursor: pointer;
 }
 .header__logo img {
   width: 100%;
@@ -1199,6 +1200,7 @@ body {
   height: 100%;
 }
 .cost__card-btn {
+  display: block;
   width: 160px;
   height: 30px;
   margin-left: 50%;
@@ -2318,6 +2320,9 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+.footer__logo {
+  cursor: pointer;
 }
 .footer__logo_img {
   max-width: 240px;
